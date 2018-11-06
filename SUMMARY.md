@@ -29,4 +29,5 @@
 * API
  * [api-react](React/api-react.md)
  * [api-react-component](React/api-react-component.md)
+ * [api-react-dom](React/api-react-dom.md)
  
