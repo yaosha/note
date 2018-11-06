@@ -25,6 +25,7 @@
  * [性能优化](React/性能优化.md)
  * [上升state](React/上升state.md)
  * [组合](React/组合.md)
+ * [derived-state](React/derived-state.md)
 * API
  * [api-react](React/api-react.md)
  * [api-react-component](React/api-react-component.md)
