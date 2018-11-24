@@ -36,6 +36,6 @@
   * 优化须知
     * [RAIL模型](Performance/RAIL-model.md)
     * [Lighthouse](Performance/Lighthouse.md)
-  * 加载性能
+  * 加载性能优化
     * [基本技巧](Performance/basic-technique.md)
  
