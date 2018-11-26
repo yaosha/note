@@ -38,4 +38,5 @@
     * [Lighthouse](Performance/Lighthouse.md)
   * 加载性能优化
     * [基本技巧](Performance/basic-technique.md)
- 
+    * [评估加载性能](Performance/assess-loading-performance.md)
+    * [性能指标](Performance/user-centric-performance-metrics.md)
