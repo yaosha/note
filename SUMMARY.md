@@ -40,3 +40,5 @@
     * [基本技巧](Performance/basic-technique.md)
     * [评估加载性能](Performance/assess-loading-performance.md)
     * [性能指标](Performance/user-centric-performance-metrics.md)
+    * [低带宽和高延迟](Performance/poor-connectivity.md)
+    * [优化内容效率](Performance/optimizing-content-efficiency.md)
