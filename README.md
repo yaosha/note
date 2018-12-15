@@ -5,5 +5,5 @@
 ```
 npm install gitbook-cli -g
 
-npm gitbook serve
+gitbook serve
 ```
