@@ -5,5 +5,9 @@
 ```
 npm install gitbook-cli -g
 
+//本地运行
 gitbook serve
+
+//生成到docs目录
+gitbook build ./docs
 ```

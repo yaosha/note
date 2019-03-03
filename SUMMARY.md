@@ -42,3 +42,5 @@
     * [性能指标](Performance/user-centric-performance-metrics.md)
     * [低带宽和高延迟](Performance/poor-connectivity.md)
     * [优化内容效率](Performance/optimizing-content-efficiency.md)
+  * 内存
+    * [内存泄漏](Performance/memory-leak.md)
