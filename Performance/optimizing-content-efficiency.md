@@ -697,7 +697,7 @@ Font Loading API 提供了一种脚本编程接口来定义和操纵 CSS 字体�
 
 这中间过程浏览器自动处理，所以开发人员可以做的是**保证服务器正确设置`ETag`**。
 
-### Cache-Control
+#### Cache-Control
 
 `Cache-Control`控制客户端或者中间缓存是否可以缓存响应，以及缓存时间。
 
@@ -712,13 +712,13 @@ Font Loading API 提供了一种脚本编程接口来定义和操纵 CSS 字体�
 * private：只允许单用户缓存，不允许任何中间缓存存储响应数据。
 * mas-age：单位秒，指定缓存有效时间，从请求时间开始
 
-### 最佳缓存策略
+#### 最佳缓存策略
 
 ![image](./http-cache-decision-tree.png)
 
 确定哪些资源可缓存，返回正确的Cache-Control和ETag信息。
 
-### 废弃缓存，更新资源
+#### 废弃缓存，更新资源
 
 在缓存有效期内，资源变更了，这时候需要废弃缓存重新下载最新的资源。
 
@@ -731,7 +731,7 @@ Font Loading API 提供了一种脚本编程接口来定义和操纵 CSS 字体�
   - app.444yyy.js Cache-Control:private, max-age=15552000
   - photo.png Cache-Control:max-age=2592000
 
-### 定义缓存策略
+#### 定义缓存策略
 
 根据通信模式、提供的数据类型以及应用特定的数据更新要求，为每个资源定义和配置合适的设置，以及整体的“缓存层次结构”。
 
@@ -741,3 +741,59 @@ Font Loading API 提供了一种脚本编程接口来定义和操纵 CSS 字体�
 * 确定资源的最佳缓存周期：为每个资源设置合适的 max-age。
 * 确定网站的缓存层次结构：通过为 HTML 文档组合使用包含内容hash的资源网址和短时间或 no-cache 周期，来控制客户端获取更新的速度。
 * 最大限度减少文件改动：将资源中更新频繁的部分提取到单独文件。
+
+### 使用客户端请求头提示适配用户请求资源
+
+客户端请求头提示包含客户端`设备`和`网络`情况，服务端根据这些提示返回合适的资源。
+
+#### 内容协商
+
+例如请求头`Accept`，描述客户端可接受的资源类型，服务端返回对应类型的资源。
+
+服务端基于客户端的设备和网络条件可以实现性能提升，例如对于网络不好的客户端，响应中不包含非关键信息。
+
+#### Accept-CH和Accept-CH-Lifetime
+
+`Accept-CH`和`Accept-CH-Lifetime`是服务端响应头，提示客户端哪些提示可接受，为了最小化请求头。
+
+`Accept-CH`是逗号分隔的一段字符串，提示服务端可接受的提示请求头。
+
+```
+Accept-CH: Viewport-Width, Downlink
+```
+
+`Accept-CH-Lifetime`是可选的，提示客户端记住`Accept-CH`值得时间，单位为秒。
+
+除了从服务端响应，还可以在`meta`的`http-equiv`中使用。
+
+```html
+<meta http-equiv="Accept-CH" content="Viewport-Width, Downlink">
+<meta http-equiv="Accept-CH-Lifetime" content="86400">
+```
+> 注意：
+>
+> 必须使用HTTPS
+
+#### 客户端提示
+
+##### 设备提示
+
+设备提示一般包含屏幕特征。
+
+图像单位
+
+* `内在大小`：媒体资源的实际尺寸。 
+* `密度校正的内在大小`：校正像素密度后的媒体资源的尺寸。 它是图像的内在大小除以[设备像素比率](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/devicePixelRatio)。设备像素比率为设备的物理像素分辨率与CSS像素分辨率的比值，如果设备像素比率为2，则2个CSS像素占1个设备像素。例如设备像素比率为1使用whats-up-1x.png，设备像素比率为2使用whats-up-2x.png，whats-up-2x.png的实际尺寸为whats-up-1x.png的2倍，最终显示在屏幕上是同样的大小。
+```html
+<img src="whats-up-1x.png"
+     srcset="whats-up-2x.png 2x, whats-up-1x.png 1x"
+     alt="I'm that image you wanted.">
+```
+* `外在大小`：样式生效后的媒体资源的大小。 
+
+设备提示
+* `Viewport-Width`：用户设备视口宽度px大小
+* `DPR`： device pixel ratio简称，就是[设备像素比率](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/devicePixelRatio)
+* `Width`：
+
+##### 网络提示
