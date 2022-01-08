@@ -1,0 +1,26 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "description": "使用gitbook构建静态文档，使用如下命令启动项目",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "gitbook serve --watch",
+    "build": "gitbook build ./docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaosha/note.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yaosha/note/issues"
+  },
+  "homepage": "https://github.com/yaosha/note#readme",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}
