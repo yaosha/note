@@ -5,7 +5,8 @@
   * [简介](JavaScript/简介.md)
   * [数据类型](JavaScript/数据类型.md)
   * [操作符](JavaScript/操作符.md)
-  * [引用类型](JavaScript/引用类型.md)  
+  * [引用类型](JavaScript/引用类型.md)
+  * [函数](JavaScript/函数.md)
 * React
   * React基础
     * [JSX](React/JSX.md)
