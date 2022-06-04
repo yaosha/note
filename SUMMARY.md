@@ -7,6 +7,16 @@
   * [操作符](JavaScript/操作符.md)
   * [引用类型](JavaScript/引用类型.md)
   * [函数](JavaScript/函数.md)
+* ES6
+  * [简介](ES6/简介.md)
+  * [let&const](ES6/let&const.md)
+  * [Symbol](ES6/Symbol.md)
+  * [模板字符串](ES6/模板字符串.md)
+  * [解构](ES6/解构.md)
+  * [箭头函数](ES6/箭头函数.md)
+  * [Promise](ES6/Promise.md)
+  * [模块](ES6/模块.md)
+  * [类](ES6/类.md)
 * React
   * React基础
     * [JSX](React/JSX.md)
